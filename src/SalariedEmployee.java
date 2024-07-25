@@ -7,9 +7,15 @@ public class SalariedEmployee extends Employee{
         this.annualSalary = annualSalary;
     }
 
-    public void retire(int age){
-        if(age >40) {
-            System.out.println("Retirement age is attained!");
-        }
+    @Override
+   public double collectPay(){
+        double paycheck =annualSalary/26;
+        double adjustedPay=(isRetired)?0.9*paycheck:paycheck;
+
+        return (int) adjustedPay;
+    }
+    public void retire() {
+        terminate("12/12/2022");
+        isRetired=true;
     }
 }
